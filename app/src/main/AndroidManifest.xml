@@ -23,7 +23,8 @@
         <activity android:name=".TriangleView2" />
         <activity android:name=".TriangleViewShow2" />
         <activity android:name=".CircleView" />
-        <activity android:name=".CircleViewShow"></activity>
+        <activity android:name=".CircleViewShow" />
+        <activity android:name=".FormulaView"></activity>
     </application>
 
 </manifest>

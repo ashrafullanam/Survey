@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
             "Triangle",
             "Triangle2",
             "Circle",
+            "Formula"
 
     } ;
     Integer[] imageId = {
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
             R.drawable.image2,
             R.drawable.image3,
             R.drawable.image4,
+            R.drawable.image5,
 
     };
 
@@ -57,6 +59,11 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if(web[position]=="Circle"){
                     Intent appInfo = new Intent(MainActivity.this, CircleView.class);
+                    startActivity(appInfo);
+
+                }
+                if(web[position]=="Formula"){
+                    Intent appInfo = new Intent(MainActivity.this, FormulaView.class);
                     startActivity(appInfo);
 
                 }
