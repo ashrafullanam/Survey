@@ -20,7 +20,7 @@ public class CircleView extends AppCompatActivity {
 
         Inc1= (EditText) findViewById(R.id.inch1);
 
-
+//ty
 
         percent= (EditText) findViewById(R.id.Quardpercent);
 
