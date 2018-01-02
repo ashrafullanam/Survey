@@ -17,10 +17,7 @@ public class CircleView extends AppCompatActivity {
         setContentView(R.layout.activity_circle_view);
         L1= (EditText) findViewById(R.id.lenght1);
 
-
         Inc1= (EditText) findViewById(R.id.inch1);
-
-//ty
 
         percent= (EditText) findViewById(R.id.Quardpercent);
 
