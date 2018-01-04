@@ -2,6 +2,7 @@ package com.example.ashraf.survey;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +12,7 @@ public class TriangleView extends AppCompatActivity {
     private EditText L1,L2,L3,percent,Inc1,Inc2,Inc3;
     private Button calculate;
     private double d1,d2,d3,percenD,dSquare,dtotalPerc,dTotalLand;
+    private String strL1,strL2,strL3,strI1,strI2,strI3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,11 +35,11 @@ public class TriangleView extends AppCompatActivity {
 
                 Compute();
                 //Toast.makeText(TriangleView.this,""+dSquare, Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(TriangleView.this,TriangleViewShow.class);
+               /* Intent i = new Intent(TriangleView.this,TriangleViewShow.class);
                 i.putExtra("Square",dSquare);
                 i.putExtra("Percentage",dtotalPerc);
                 i.putExtra("Land",dTotalLand);
-                startActivity(i);
+                startActivity(i);*/
 
             }
         });
@@ -45,6 +47,59 @@ public class TriangleView extends AppCompatActivity {
 
     private void Compute() {
 
+        strL1=L1.getText().toString();
+        strL2=L2.getText().toString();
+        strL3=L3.getText().toString();
+
+
+        strI1=Inc1.getText().toString();
+        strI2=Inc2.getText().toString();
+        strI3=Inc3.getText().toString();
+
+
+        if(TextUtils.isEmpty(strL1)){
+            L1.setError("Please Enter Length 1!!");
+        }
+        else if(TextUtils.isEmpty(strL2)){
+            L2.setError("Please Enter Length 2!!");
+        }
+        else if(TextUtils.isEmpty(strL3)){
+            L3.setError("Please Enter Length 3!!");
+        }
+
+        else if(TextUtils.isEmpty(strI1)){
+            Inc1.setError("Please Enter Inch 1!!");
+        }
+        else if(TextUtils.isEmpty(strI2)){
+            Inc2.setError("Please Enter Inch 2!!");
+        }
+        else if(TextUtils.isEmpty(strI3)){
+            Inc3.setError("Please Enter Inch 3!!");
+        }
+
+        else{
+
+
+            d1= Double.parseDouble(strL1)+(Double.parseDouble(strI1)/12);
+            d2= Double.parseDouble(strL2)+(Double.parseDouble(strI2)/12);
+            d3= Double.parseDouble(strL3)+(Double.parseDouble(strI3)/12);
+
+            double s=(d1+d2+d3)/2;
+            percenD= Double.parseDouble(percent.getText().toString());
+
+            dSquare = Math.sqrt(s*(s-d1)*(s-d2)*(s-d3));
+            dtotalPerc= dSquare/435.6;
+            dTotalLand=dtotalPerc/percenD;
+
+            Intent i = new Intent(TriangleView.this,TriangleViewShow.class);
+            i.putExtra("Square",dSquare);
+            i.putExtra("Percentage",dtotalPerc);
+            i.putExtra("Land",dTotalLand);
+            startActivity(i);
+
+        }
+
+/*
         d1= Double.parseDouble(L1.getText().toString())+(Double.parseDouble(Inc1.getText().toString())/12);
         d2= Double.parseDouble(L2.getText().toString())+(Double.parseDouble(Inc2.getText().toString())/12);
         d3= Double.parseDouble(L3.getText().toString())+(Double.parseDouble(Inc3.getText().toString())/12);
@@ -55,6 +110,9 @@ public class TriangleView extends AppCompatActivity {
         dSquare = Math.sqrt(s*(s-d1)*(s-d2)*(s-d3));
         dtotalPerc= dSquare/435.6;
         dTotalLand=dtotalPerc/percenD;
+        */
+
+
 
     }
 }
