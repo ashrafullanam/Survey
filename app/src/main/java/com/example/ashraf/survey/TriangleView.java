@@ -1,9 +1,11 @@
 package com.example.ashraf.survey;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -61,19 +63,44 @@ public class TriangleView extends AppCompatActivity {
             L1.setError("Please Enter Length 1!!");
         }
         else if(TextUtils.isEmpty(strL2)){
+
+            L2.requestFocus();
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.showSoftInput(L2, InputMethodManager.SHOW_IMPLICIT);
+
             L2.setError("Please Enter Length 2!!");
         }
         else if(TextUtils.isEmpty(strL3)){
+
+            L3.requestFocus();
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.showSoftInput(L3, InputMethodManager.SHOW_IMPLICIT);
+
             L3.setError("Please Enter Length 3!!");
         }
 
         else if(TextUtils.isEmpty(strI1)){
+
+            Inc1.requestFocus();
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.showSoftInput(Inc1, InputMethodManager.SHOW_IMPLICIT);
+
             Inc1.setError("Please Enter Inch 1!!");
         }
         else if(TextUtils.isEmpty(strI2)){
+
+            Inc2.requestFocus();
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.showSoftInput(Inc2, InputMethodManager.SHOW_IMPLICIT);
+
             Inc2.setError("Please Enter Inch 2!!");
         }
         else if(TextUtils.isEmpty(strI3)){
+
+            Inc3.requestFocus();
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.showSoftInput(Inc3, InputMethodManager.SHOW_IMPLICIT);
+
             Inc3.setError("Please Enter Inch 3!!");
         }
 
